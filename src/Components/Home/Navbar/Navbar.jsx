@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import  './Navbar.css'
+import './Navbar.css'
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user);
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                Swal.fire("Logout successfully");
+            })
+            .catch(error => console.log(error))
+    }
     const navbar = (
         <>
             <ul className="md:flex bg-white text-black mx-auto">
@@ -16,36 +27,39 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item">
-                    <Link to='skill' spy={true}
-                        smooth={true}
-                        offset={50}
-                        duration={500} className="nav-link">Skills</Link>
+                    <button className="nav-link">My Task</button>
                 </li>
                 <li className="nav-item">
-                    <Link to='projects' spy={true}
-                        smooth={true}
-                        offset={50}
-                        duration={500} className="nav-link">Projects</Link>
+                    <button className="nav-link">Complete Task</button>
                 </li>
-                <li className="nav-item">
-                    <Link to='about' spy={true}
-                        smooth={true}
-                        offset={50}
-                        duration={500} className="nav-link">About</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to='contact' spy={true}
-                        smooth={true}
-                        offset={50}
-                        duration={500} className="nav-link">Contact</Link>
-                </li>
-                {/* <li className="nav-item">
-            <span className="nav-link">Blog</span>
-          <Link to='blog' spy={true}
-              smooth={true}
-              offset={50}
-              duration={500} className="nav-link">Blog</Link>
-          </li> */}
+                <div className="dropdown  md:dropdown-bottom lg:dropdown-end">
+                    <div tabIndex={0} role="button" className=" btn-circle avatar">
+                        <div className="w-10 h-10 rounded-full">
+                            {user ? <>
+                                <img src={user?.photoURL} alt="User profile" />
+                            </> : 
+                            <>
+                            </>}
+                        </div>
+                    </div>
+                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52">
+                        {
+                            user ? <>
+                                    <button>
+                                        <Link to='/' className="nav-link">Dashboard
+                                        </Link>
+                                    </button>
+                                    <button onClick={handleLogout}>
+                                        <Link to='/' className="nav-link">Logout
+                                        </Link>
+                                    </button>
+                            </> :
+                                <>
+
+                                </>
+                        }
+                    </ul>
+                </div>
             </ul>
         </>
     );
