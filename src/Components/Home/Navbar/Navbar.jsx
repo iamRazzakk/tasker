@@ -20,14 +20,12 @@ const Navbar = () => {
         <>
             <ul className="md:flex bg-white text-black mx-auto">
                 <li className="nav-item my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">
-                    <Link to='/' spy={true}
-                        smooth={true}
-                        offset={50}
-                        duration={500} className="nav-link">Home</Link>
+                    <Link to='/' className="nav-link">Home</Link>
                 </li>
 
                 <li className="nav-item">
-                    <button className="nav-link">My Task</button>
+                    {/* <button className="nav-link">My Task</button> */}
+                    <Link className="nav-link" to='/myTask'>My Task</Link>
                 </li>
                 <li className="nav-item">
                     <button className="nav-link">Complete Task</button>
@@ -37,22 +35,22 @@ const Navbar = () => {
                         <div className="w-10 h-10 rounded-full">
                             {user ? <>
                                 <img src={user?.photoURL} alt="User profile" />
-                            </> : 
-                            <>
-                            </>}
+                            </> :
+                                <>
+                                </>}
                         </div>
                     </div>
                     <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52">
                         {
                             user ? <>
-                                    <button>
-                                        <Link to='/' className="nav-link">Dashboard
-                                        </Link>
-                                    </button>
-                                    <button onClick={handleLogout}>
-                                        <Link to='/' className="nav-link">Logout
-                                        </Link>
-                                    </button>
+                                <button>
+                                    <Link to='/dashboard' className="nav-link">Dashboard
+                                    </Link>
+                                </button>
+                                <button onClick={handleLogout}>
+                                    <Link to='/' className="nav-link">Logout
+                                    </Link>
+                                </button>
                             </> :
                                 <>
 

@@ -12,6 +12,14 @@ import AuthProvider from './Components/Provider/AuthProvider';
 import Singup from './Components/Singup/Singup';
 import Dashboard from './Components/Dashboard/Dashboard';
 import CreateTask from './Components/Dashboard/CreateTask';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import MyTask from './Components/MyTask/MyTask';
+
+// Create a client
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: 'myTask',
+        element: <MyTask></MyTask>
       },
       {
         path: '/login',
@@ -48,8 +60,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 )
