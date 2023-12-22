@@ -24,6 +24,7 @@ import TaskManagement from './Components/Dashboard/TaskManagement';
 import UpdateTask from './Components/Dashboard/UpdateTask';
 import Blog from './Components/Blog/Blog';
 import PrivateRoute from './PrivateRoute';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Create a client
 const queryClient = new QueryClient()
@@ -93,11 +94,13 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div className=''>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <RouterProvider router={router} />
-        </AuthProvider>
-      </QueryClientProvider>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
+        </QueryClientProvider>
+      </HelmetProvider>
     </div>
   </React.StrictMode>,
 )

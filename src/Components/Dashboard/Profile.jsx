@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const Profile = () => {
@@ -7,6 +8,9 @@ const Profile = () => {
     console.log(user);
     return (
         <div className="max-w-full md:h-[100vh]">
+            <Helmet>
+                <title>Tasker | Profile</title>
+            </Helmet>
             <h1 className="text-center  text-bold md:text-2xl font-Poppins uppercase font-bold">my profile</h1>
             <div className="md:flex md:mt-6">
                 <div className="flex-1">

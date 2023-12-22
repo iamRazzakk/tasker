@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const TaskManagement = () => {
     const { user } = useContext(AuthContext)
@@ -74,6 +75,9 @@ const TaskManagement = () => {
     // return
     return (
         <div className="lg:flex items-center justify-evenly p-2 gap-4">
+            <Helmet>
+                <title>Tasker | Task Managerment</title>
+            </Helmet>
             <div className="">
                 {/* todo list */}
                 <h1 className="text-xl font-bold font-righteous text-center">To-Do List</h1>

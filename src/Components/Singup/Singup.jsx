@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from './../Provider/AuthProvider';
 import { useForm } from "react-hook-form";
 import { FaGithub } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 const Singup = () => {
@@ -70,6 +71,9 @@ const Singup = () => {
     }
     return (
         <div className=" m-auto font-righteous bg-white">
+            <Helmet>
+                <title>Tasker | Sing Up</title>
+            </Helmet>
             <div>
                 <h1 className="text-5xl text-center font-bold">SingUp now!</h1>
             </div>

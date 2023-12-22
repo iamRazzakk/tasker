@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import loginImg from '../../assets/login.jpg';
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const location = useNavigate();
@@ -64,6 +65,9 @@ const Login = () => {
 
     return (
         <div className="m-auto font-Poppins min-h-full bg-white">
+            <Helmet>
+                <title>Tasker | Login</title>
+            </Helmet>
             <div>
                 <h1 className="text-5xl text-center font-bold">Login now!</h1>
             </div>

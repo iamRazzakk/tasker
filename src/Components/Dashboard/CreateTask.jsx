@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
 
 const CreateTask = () => {
     const {
@@ -57,6 +58,9 @@ const CreateTask = () => {
 
     return (
         <div className="md:p-6 md:h-[100vh]">
+            <Helmet>
+                <title>Tasker | CreateTask</title>
+            </Helmet>
             <h1 className="text-5xl text-center font-righteous">Create List</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body max-w-full text-white">
                 <div className="form-control">

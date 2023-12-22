@@ -3,7 +3,7 @@ const WhyUseIt = () => {
     return (
         <div className="bg-white text-black">
             <h1 className="text-center font-bold font-righteous text-5xl">Why use It</h1>
-            <ul className="steps p-6 md:gap-4">
+            <div className="steps p-6 md:gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 <div className="border md:mt-6 bg-gray-300 rounded-lg md:p-6">
                     <li className="step step-primary ">
                         <h2 className="text-xl font-bold">For Developers</h2>
@@ -31,7 +31,7 @@ const WhyUseIt = () => {
                         </p>
                     </li>
                 </div>
-            </ul>
+            </div>
         </div>
     );
 };
