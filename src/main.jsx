@@ -22,6 +22,7 @@ import Profile from './Components/Dashboard/Profile';
 import CompleteTask from './Components/CompleteTask/CompleteTask';
 import TaskManagement from './Components/Dashboard/TaskManagement';
 import UpdateTask from './Components/Dashboard/UpdateTask';
+import Blog from './Components/Blog/Blog';
 
 // Create a client
 const queryClient = new QueryClient()
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         path: '/complete',
         element: <CompleteTask></CompleteTask>
       },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      }
 
 
     ]

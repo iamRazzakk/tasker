@@ -29,6 +29,9 @@ const Navbar = () => {
                 <li className="nav-item">
                     <Link className="nav-link" to='/complete'>Complete Task</Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to='/blog'>Blog</Link>
+                </li>
                 <div className="dropdown  md:dropdown-bottom lg:dropdown-end">
                     <div tabIndex={0} role="button" className=" btn-circle avatar">
                         <div className="w-10 h-10 rounded-full">

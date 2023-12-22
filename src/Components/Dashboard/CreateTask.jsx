@@ -54,7 +54,7 @@ const CreateTask = () => {
 
     return (
         <div className="md:p-6">
-            <form onSubmit={handleSubmitTask} className="card-body text-white">
+            <form onSubmit={handleSubmitTask} className="card-body max-w-full text-white">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Title</span>
