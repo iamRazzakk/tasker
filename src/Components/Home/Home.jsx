@@ -1,10 +1,14 @@
 import Header from "./Header/Header";
+import WhyUseIt from "./WhyUseIt/WhyUseIt";
 
 
 const Home = () => {
     return (
-        <div>
-           <Header></Header>
+        <div className="bg-white">
+            <Header></Header>
+            <div className="md:mt-10">
+            <WhyUseIt></WhyUseIt>
+            </div>
         </div>
     );
 };

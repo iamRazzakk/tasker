@@ -14,7 +14,7 @@ const PreviousTask = () => {
         task => task.status === "Done" && new Date
     );
     return (
-        <div>
+        <div className="md:h-[100vh]">
             <h1 className="text-center font-bold font-righteous text-black text-3xl bg-white">Previous Task List</h1>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 w-full p-6 bg-white">
                 {previousTasks.map((Task, index) => (

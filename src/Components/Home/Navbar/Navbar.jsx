@@ -44,7 +44,7 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52">
                         {
-                            user ? <>
+                            user && <>
                                 <button>
                                     <Link to='/dashboard' className="nav-link">Dashboard
                                     </Link>
@@ -53,10 +53,7 @@ const Navbar = () => {
                                     <Link to='/' className="nav-link">Logout
                                     </Link>
                                 </button>
-                            </> :
-                                <>
-
-                                </>
+                            </> 
                         }
                     </ul>
                 </div>

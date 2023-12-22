@@ -73,20 +73,20 @@ const TaskManagement = () => {
 
     // return
     return (
-        <div className="lg:flex items-center justify-center p-2 gap-4 ">
+        <div className="lg:flex items-center justify-evenly p-2 gap-4">
             <div className="">
                 {/* todo list */}
                 <h1 className="text-xl font-bold font-righteous text-center">To-Do List</h1>
                 <div>
                     {userTasks.map((Task, index) => (
                         <div key={index} className="bg-black mt-4 text-white rounded-lg w-full  h-auto mx-auto">
-                            <div className="flex items-center pl-5 gap-6 ">
-                                <div className="p-4">
-                                    <h2 className="text-xl font-bold">Title: {Task.Title}</h2>
-                                    <p className="text-white text-sm">Description: {Task.Description}</p>
+                            <div className="pl-5 gap-6 ">
+                                <div className="p-4 w-40 h-52">
+                                    <h2 className="text-xl font-bold">Title: {Task?.Title}</h2>
+                                    <p className="text-white text-sm">Description: {Task?.description}</p>
                                     <p className="text-white text-sm">Date: {Task.date}</p>
                                 </div>
-                                <div className="flex items-center  justify-between text-black font-righteous ml-10 mx-auto">
+                                <div className="flex items-center justify-between text-black font-righteous mx-auto">
                                     {
                                         Task.status === "pending" ? <>
                                             <button onClick={() => handleUpdate(Task._id)} className="px-6 py-2 md:mr-4 bg-red-600 rounded-xl">
@@ -126,11 +126,11 @@ const TaskManagement = () => {
             </div>
             <div className="">
                 <h1 className="text-xl font-bold font-righteous text-center">Complete</h1>
-                <div>
+                <div className="">
                     {completeTask?.map((Task, index) => (
-                        <div key={index} className="bg-black mt-4 text-white rounded-lg w-full  h-auto mx-auto">
+                        <div key={index} className="bg-black mt-4 text-white rounded-lg ">
                             <div className="flex items-center pl-5 gap-6 ">
-                                <div className="p-4">
+                                <div className="p-4 w-96 h-52">
                                     <h2 className="text-xl font-bold">Title: {Task.Title}</h2>
                                     <p className="text-white text-sm">Description: {Task.Description}</p>
                                     <p className="text-white text-sm">Date: {Task.date}</p>

@@ -23,6 +23,7 @@ import CompleteTask from './Components/CompleteTask/CompleteTask';
 import TaskManagement from './Components/Dashboard/TaskManagement';
 import UpdateTask from './Components/Dashboard/UpdateTask';
 import Blog from './Components/Blog/Blog';
+import PrivateRoute from './PrivateRoute';
 
 // Create a client
 const queryClient = new QueryClient()
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'myTask',
-        element: <MyTask></MyTask>,
+        element: <PrivateRoute><MyTask></MyTask></PrivateRoute>,
       },
       {
         path: '/login',
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/complete',
-        element: <CompleteTask></CompleteTask>
+        element: <PrivateRoute><CompleteTask></CompleteTask></PrivateRoute>
       },
       {
         path: '/blog',
@@ -62,24 +63,24 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     errorElement: <div className='flex justify-center items-center md:p-60 text-5xl font-bold'>Error</div>,
     children: [
       {
         path: 'createTask',
-        element: <CreateTask></CreateTask>
+        element: <PrivateRoute><CreateTask></CreateTask></PrivateRoute>
       },
       {
         path: 'previous',
-        element: <PreviousTask></PreviousTask>
+        element: <PrivateRoute><PreviousTask></PreviousTask></PrivateRoute>
       },
       {
         path: 'profile',
-        element: <Profile></Profile>
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>
       },
       {
         path: 'taskManagement',
-        element: <TaskManagement></TaskManagement>
+        element: <PrivateRoute><TaskManagement></TaskManagement></PrivateRoute>
       },
       {
         path: "updateData/:id",
@@ -91,10 +92,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </QueryClientProvider>
+    <div className=''>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </QueryClientProvider>
+    </div>
   </React.StrictMode>,
 )

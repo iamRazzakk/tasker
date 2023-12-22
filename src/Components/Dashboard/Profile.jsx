@@ -6,7 +6,7 @@ const Profile = () => {
     const { user } = useContext(AuthContext)
     console.log(user);
     return (
-        <div className="max-w-full">
+        <div className="max-w-full md:h-[100vh]">
             <h1 className="text-center  text-bold md:text-2xl font-Poppins uppercase font-bold">my profile</h1>
             <div className="md:flex md:mt-6">
                 <div className="flex-1">
