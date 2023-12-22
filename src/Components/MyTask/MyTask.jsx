@@ -18,17 +18,18 @@ const MyTask = () => {
         },
     });
     const userTasks = createTasks.filter(task => task.email === userEmail);
+    const completeTask = createTasks.filter(task => task.status === "Done");
     const handleUpdate = (_id) => {
-        fetch(`http://localhost:5000/createTask/${_id}`,{
-            method:"PATCH",
-            headers:{
-                'content-type':'application/json'
+        fetch(`http://localhost:5000/createTask/${_id}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
             },
-            body: JSON.stringify({status:"Done"})
+            body: JSON.stringify({ status: "Done" })
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         position: "top-end",
@@ -43,12 +44,15 @@ const MyTask = () => {
     return (
         <div className="p-10 bg-white">
             <h1 className="text-5xl text-center font-righteous text-black">My Task</h1>
+            <div>
+
+            </div>
             <div className="flex items-center justify-center gap-4 md:mt-10">
                 <div className="bg-black p-2 rounded-lg w-1/2">
                     <h1 className="text-red-500 text-center">Total task: {userTasks.length}</h1>
                 </div>
                 <div className="bg-black p-2 rounded-lg w-1/2">
-                    <h1 className="text-green-500 text-center">Complete task: {userTasks.length}</h1>
+                    <h1 className="text-green-500 text-center">Complete task: {completeTask.length}</h1>
                 </div>
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 w-full">
@@ -63,12 +67,12 @@ const MyTask = () => {
                             <div className="flex items-end justify-between text-black font-righteous ml-10 mx-auto">
                                 {
                                     Task.status === "pending" ? <>
-                                        <button onClick={() => handleUpdate(Task._id)} className="px-6 py-2 bg-white rounded-xl">
+                                        <button onClick={() => handleUpdate(Task._id)} className="px-6 py-2 bg-red-600 rounded-xl">
                                             Pending
                                         </button>
                                     </> :
                                         <>
-                                            <button className="px-6 py-2 bg-white rounded-xl">Complete</button>
+                                            <button className="px-6 py-2 bg-green-600 rounded-xl">Complete</button>
                                         </>
                                 }
                             </div>

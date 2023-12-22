@@ -27,7 +27,7 @@ const Navbar = () => {
                     <Link className="nav-link" to='/myTask'>My Task</Link>
                 </li>
                 <li className="nav-item">
-                    <button className="nav-link">Complete Task</button>
+                    <Link className="nav-link" to='/complete'>Complete Task</Link>
                 </li>
                 <div className="dropdown  md:dropdown-bottom lg:dropdown-end">
                     <div tabIndex={0} role="button" className=" btn-circle avatar">

@@ -1,7 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../Hook/axiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
-const PreviousTask = () => {
+
+const CompleteTask = () => {
     const axiosSecure = useAxiosSecure();
     const { data: completeTasks = [] } = useQuery({
         queryKey: ["createTask"],
@@ -10,14 +11,13 @@ const PreviousTask = () => {
             return res.data;
         },
     });
-    const previousTasks = completeTasks.filter(
-        task => task.status === "Done" && new Date
-    );
+    const completeTask = completeTasks.filter(task => task.status === "Done");
+    console.log(completeTask);
     return (
         <div>
-            <h1 className="text-center font-bold font-righteous text-black text-3xl bg-white">Previous Task List</h1>
+            <h1 className="text-center font-bold font-righteous text-black text-3xl bg-white">Complete Task List</h1>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 w-full p-6 bg-white">
-                {previousTasks.map((Task, index) => (
+                {completeTask.map((Task, index) => (
                     <div key={index} className="bg-black mt-4 text-white rounded-lg w-full  h-auto mx-auto">
                         <div className="flex items-center pl-5 gap-6 ">
                             <div className="p-4">
@@ -36,4 +36,4 @@ const PreviousTask = () => {
     );
 };
 
-export default PreviousTask;
+export default CompleteTask;

@@ -1,7 +1,6 @@
 
-import { useState } from "react";
+import { useState } from 'react';
 import DatePicker from "react-datepicker";
-
 const UpdateTask = () => {
     const [startDate, setStartDate] = useState(new Date());
     const handleUpdate = e => {
@@ -52,7 +51,7 @@ const UpdateTask = () => {
                 </div>
             </form>
         </div>
-    );
+    )
 };
 
 export default UpdateTask;
