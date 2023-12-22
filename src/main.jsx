@@ -17,6 +17,9 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import MyTask from './Components/MyTask/MyTask';
+import PreviousTask from './Components/Dashboard/PreviousTask';
+import UpdateTask from './Components/Update/UpdateTask';
+import Profile from './Components/Dashboard/Profile';
 
 // Create a client
 const queryClient = new QueryClient()
@@ -32,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'myTask',
-        element: <MyTask></MyTask>
+        element: <MyTask></MyTask>,
       },
       {
         path: '/login',
@@ -42,6 +45,11 @@ const router = createBrowserRouter([
         path: '/singup',
         element: <Singup></Singup>
       },
+      {
+        path: '/update/:id',
+        element: <UpdateTask></UpdateTask>,
+        loader: ({ params }) => fetch(`http://localhost:5000/createTask/${params.id}`)
+      }
 
     ]
   },
@@ -53,6 +61,14 @@ const router = createBrowserRouter([
       {
         path: 'createTask',
         element: <CreateTask></CreateTask>
+      },
+      {
+        path: 'previous',
+        element: <PreviousTask></PreviousTask>
+      },
+      {
+        path: 'profile',
+        element: <Profile></Profile>
       }
     ]
   }

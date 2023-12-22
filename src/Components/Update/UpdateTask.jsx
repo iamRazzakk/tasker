@@ -1,60 +1,21 @@
 
-import { useContext, useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 
-import "react-datepicker/dist/react-datepicker.css";
-import Swal from "sweetalert2";
-import { AuthContext } from "../Provider/AuthProvider";
-const CreateTask = () => {
+const UpdateTask = () => {
     const [startDate, setStartDate] = useState(new Date());
-    const { user } = useContext(AuthContext)
-    const email = user?.email
-    const handleSubmitTask = e => {
+    const handleUpdate = e => {
         e.preventDefault();
-        const from = e.target;
-        const Title = from.Title.value;
-        const Description = from.description.value;
-        const date = from.date.value;
-        const priority = from.priority.value;
-        console.log(Title, Description, date, priority);
-        const taskData = {
-            Title,
-            Description,
-            date,
-            priority,
-            email,
-            status:"pending"
-        };
-
-        fetch('http://localhost:5000/createTask', {
-            method: "POST",
-            headers: {
-                "content-Type": "application/json",
-            },
-            body: JSON.stringify(taskData),
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.acknowledged) {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Add task successfully",
-                        showConfirmButton: false,
-                        timer: 1000
-                    });
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-
+        const form = e.target;
+        const Title = form.Title.value;
+        const description = form.description.value;
+        const date = form.date.value;
+        const priority = form.priority.value;
+        console.log(Title, description, date, priority);
     }
-
     return (
-        <div className="md:p-6">
-            <form onSubmit={handleSubmitTask} className="card-body text-white">
+        <div className="md:p-6 bg-white">
+            <form onSubmit={handleUpdate} className="card-body text-white">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Title</span>
@@ -87,11 +48,11 @@ const CreateTask = () => {
 
 
                 <div className="form-control mt-6">
-                    <button className="btn btn-primary">Create Task</button>
+                    <button className="btn btn-primary">Update Task</button>
                 </div>
             </form>
         </div>
     );
 };
 
-export default CreateTask;
+export default UpdateTask;

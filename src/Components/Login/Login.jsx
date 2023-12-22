@@ -20,7 +20,7 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
-                location('/dashboard');
+                location('/dashboard/profile');
                 Swal.fire("Login successfully");
             })
             .catch((error) => {
@@ -39,7 +39,7 @@ const Login = () => {
     const handleSingUpWithGoogle = () => {
         googleSingIn()
             .then(() => {
-                location('/dashboard');
+                location('/dashboard/profile');
                 Swal.fire("Login successfully");
             })
             .catch((error) => {

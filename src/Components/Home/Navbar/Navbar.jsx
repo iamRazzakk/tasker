@@ -24,7 +24,6 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item">
-                    {/* <button className="nav-link">My Task</button> */}
                     <Link className="nav-link" to='/myTask'>My Task</Link>
                 </li>
                 <li className="nav-item">
@@ -66,7 +65,7 @@ const Navbar = () => {
             <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
                 <div className="md:flex items-center justify-between">
                     <Link to='/'>
-                        <h1 className="font-bold text-4xl font-montserrat">#rzak</h1>
+                        <h1 className="font-bold text-3xl font-righteous">#Tasker</h1>
                     </Link>
 
                     {/* Mobile menu button */}

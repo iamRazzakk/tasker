@@ -29,7 +29,6 @@ const Singup = () => {
                         const userInfo = {
                             name: data.name,
                             email: data.email,
-                            role: 'user',
                             photo: data.photo
                         }
                         console.log(userInfo);
@@ -56,7 +55,7 @@ const Singup = () => {
         googleSingIn()
             .then(() => {
                 Swal.fire("Login successfully");
-                location('/dashboard')
+                location('/dashboard/profile')
             })
             .catch(error => {
                 console.log(error);
@@ -65,7 +64,7 @@ const Singup = () => {
     const handleSinginWithGithub = () => {
         githubSingIn()
             .then(() => {
-                location('/dashboard')
+                location('/dashboard/profile')
                 Swal.fire("Login successfully");
             })
     }

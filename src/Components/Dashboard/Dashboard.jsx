@@ -15,12 +15,11 @@ const Dashboard = () => {
                             user ? <>
                                 <li className="md:mb-4"><NavLink to='/dashboard/profile'>My Profile</NavLink></li>
                                 <li><NavLink to='/dashboard/createTask'>Create Task</NavLink></li>
-                                <li><NavLink to='/dashboard/Announcements'>Announcements</NavLink></li>
-                                <li><NavLink to='/dashboard/agreement'>Agreement Requests</NavLink></li>
-                                <li><NavLink to='/dashboard/coupons'>Manage Coupons</NavLink></li>
+                                <li><NavLink to='/dashboard/previous'>Previous task</NavLink></li>
+                                
                                 <div className="divider"></div>
                                 <li><NavLink to='/'>Home</NavLink></li>
-                                <li><NavLink to='/dashboard/allannouncements'>All Announcement</NavLink></li>
+                                <li><NavLink to='/myTask'>All Announcement</NavLink></li>
                             </> : <></>
                         }
                     </ul>
