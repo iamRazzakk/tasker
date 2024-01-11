@@ -30,7 +30,7 @@ const CreateTask = () => {
             status: "pending",
         };
 
-        fetch("http://localhost:5000/createTask", {
+        fetch("https://tasker-server-side.vercel.app/createTask", {
             method: "POST",
             headers: {
                 "content-Type": "application/json",

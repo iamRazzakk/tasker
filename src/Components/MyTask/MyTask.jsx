@@ -20,7 +20,7 @@ const MyTask = () => {
     const userTasks = createTasks.filter(task => task.email === userEmail);
     const completeTask = createTasks.filter(task => task.status === "Done");
     const handleUpdate = (_id) => {
-        fetch(`http://localhost:5000/createTask/${_id}`, {
+        fetch(`https://tasker-server-side.vercel.app/createTask/${_id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
